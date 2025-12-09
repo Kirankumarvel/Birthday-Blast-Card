@@ -215,8 +215,7 @@ This project is licensed under the MIT License. See the `LICENSE` file for detai
 
 <div align="center">
   Made with ❤️ for birthday celebrations everywhere!  
-  [![Stars](https://img.shields.io/github/stars/Kirankumarvel/birthday-blast-card?style=social)](https://github.com/Kirankumarvel/birthday-blast-card/stargazers)
-  [![Forks](https://img.shields.io/github/forks/Kirankumarvel/birthday-blast-card?style=social)](https://github.com/Kirankumarvel/birthday-blast-card/network/members)
+
 </div>
 
 Happy Birthday to someone special! 🎂🎈🎉

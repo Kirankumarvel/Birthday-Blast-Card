@@ -1,0 +1,698 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #FF6B8B;
+    --secondary: #FFD166;
+    --accent: #06D6A0;
+    --accent-dark: #00B389;
+    --blue: #118AB2;
+    --purple: #9D4EDD;
+    --dark: #073B4C;
+    --light: #FFF9F2;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    --gradient: linear-gradient(135deg, #FF6B8B 0%, #FFD166 100%);
+    --gradient-alt: linear-gradient(135deg, #FFD166 0%, #06D6A0 100%);
+    --card-bg: rgba(255, 255, 255, 0.95);
+    --text-light: #666;
+    --border-radius: 24px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    background: var(--gradient);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+    position: relative;
+    padding: 20px;
+    animation: backgroundShift 15s infinite alternate;
+}
+
+/* Main Content */
+.main-content {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+/* Background Animation */
+@keyframes backgroundShift {
+    0%, 100% { background: var(--gradient); }
+    50% { background: var(--gradient-alt); }
+}
+
+/* Container */
+.container {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    perspective: 1000px;
+}
+
+/* Card */
+.card {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border-radius: var(--border-radius);
+    padding: clamp(25px, 5vw, 40px);
+    box-shadow: var(--shadow);
+    transform-style: preserve-3d;
+    animation: float 6s ease-in-out infinite;
+    border: 8px solid white;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: sparkle 20s linear infinite;
+    pointer-events: none;
+    opacity: 0.3;
+}
+
+@keyframes float {
+    0%, 100% { 
+        transform: translateY(0px) rotateX(1deg) scale(1); 
+    }
+    50% { 
+        transform: translateY(-15px) rotateX(-1deg) scale(1.01); 
+    }
+}
+
+@keyframes sparkle {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    100% { transform: translate(100px, 100px) rotate(360deg); }
+}
+
+/* Card Header */
+.card-header {
+    text-align: center;
+    margin-bottom: clamp(30px, 5vw, 40px);
+    position: relative;
+}
+
+.birthday-hat {
+    font-size: clamp(40px, 8vw, 60px);
+    color: var(--primary);
+    margin-bottom: 20px;
+    animation: bounce 2s infinite;
+    display: inline-block;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0) rotate(-5deg); }
+    50% { transform: translateY(-15px) rotate(5deg); }
+}
+
+.title {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(2.5rem, 7vw, 4rem);
+    color: var(--dark);
+    margin-bottom: 10px;
+    text-shadow: 3px 3px 0px rgba(255, 107, 139, 0.2);
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    position: relative;
+    line-height: 1.2;
+    word-wrap: break-word;
+    hyphens: auto;
+}
+
+.title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(200px, 80%);
+    height: 4px;
+    background: var(--gradient);
+    border-radius: 2px;
+}
+
+.subtitle {
+    color: var(--dark);
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    opacity: 0.8;
+    margin-top: 25px;
+    font-weight: 500;
+}
+
+.celebrate {
+    display: inline-block;
+    animation: celebrate 1.5s infinite;
+    margin-left: 10px;
+}
+
+@keyframes celebrate {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    25% { transform: scale(1.2) rotate(15deg); }
+    75% { transform: scale(1.2) rotate(-15deg); }
+}
+
+/* Card Content Layout */
+.card-content {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(30px, 5vw, 40px);
+}
+
+/* Balloons Section */
+.balloon-section {
+    width: 100%;
+    overflow: hidden;
+}
+
+.balloon-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: clamp(15px, 3vw, 30px);
+    margin: 0 auto;
+    height: 150px;
+    position: relative;
+    flex-wrap: wrap;
+}
+
+.balloon {
+    width: clamp(40px, 8vw, 60px);
+    height: clamp(60px, 12vw, 80px);
+    border-radius: 50%;
+    position: relative;
+    animation: balloonFloat 6s ease-in-out infinite;
+    flex-shrink: 0;
+}
+
+.balloon::after {
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 30px;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.balloon1 {
+    background: radial-gradient(circle at 30% 30%, #FF6B8B, #FF3D6A);
+    animation-delay: 0s;
+}
+
+.balloon2 {
+    background: radial-gradient(circle at 30% 30%, #FFD166, #FFC233);
+    animation-delay: 0.2s;
+}
+
+.balloon3 {
+    background: radial-gradient(circle at 30% 30%, #06D6A0, #00C896);
+    animation-delay: 0.4s;
+}
+
+.balloon4 {
+    background: radial-gradient(circle at 30% 30%, #118AB2, #0A7EA3);
+    animation-delay: 0.6s;
+}
+
+.balloon5 {
+    background: radial-gradient(circle at 30% 30%, #9D4EDD, #7B2CBF);
+    animation-delay: 0.8s;
+}
+
+@keyframes balloonFloat {
+    0%, 100% { 
+        transform: translateY(0) rotate(-2deg); 
+    }
+    50% { 
+        transform: translateY(-40px) rotate(2deg); 
+    }
+}
+
+/* Cake Section */
+.cake-section {
+    display: flex;
+    justify-content: center;
+}
+
+.cake-container {
+    position: relative;
+    width: fit-content;
+}
+
+.cake {
+    position: relative;
+    width: clamp(120px, 25vw, 150px);
+    height: clamp(80px, 15vw, 100px);
+}
+
+.cake-layer {
+    position: absolute;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cake-bottom {
+    width: calc(100% + 30px);
+    height: 40px;
+    background: linear-gradient(to bottom, #8B4513, #A0522D);
+    bottom: 0;
+    left: -15px;
+}
+
+.cake-middle {
+    width: 100%;
+    height: 35px;
+    background: linear-gradient(to bottom, #FF6B8B, #FF3D6A);
+    bottom: 40px;
+}
+
+.cake-top-layer {
+    width: 80%;
+    height: 30px;
+    background: linear-gradient(to bottom, #FFD166, #FFC233);
+    bottom: 75px;
+    left: 10%;
+}
+
+.cake-top {
+    position: absolute;
+    bottom: 105px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.candle {
+    width: 8px;
+    height: 40px;
+    background: linear-gradient(to bottom, #4CC9F0, #4361EE);
+    border-radius: 4px;
+    position: relative;
+}
+
+.flame {
+    width: 12px;
+    height: 20px;
+    background: radial-gradient(ellipse at center, #FFD166, #FF6B8B);
+    border-radius: 50% 50% 20% 20%;
+    position: absolute;
+    top: -18px;
+    left: -2px;
+    animation: flicker 0.5s infinite alternate;
+    box-shadow: 0 0 15px #FFD166;
+}
+
+@keyframes flicker {
+    0%, 100% { 
+        transform: scale(1) rotate(-2deg); 
+        opacity: 0.9; 
+    }
+    50% { 
+        transform: scale(1.1) rotate(2deg); 
+        opacity: 1; 
+    }
+}
+
+/* Message Section */
+.message-section {
+    width: 100%;
+}
+
+.message {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+    border-radius: 20px;
+    padding: clamp(20px, 4vw, 25px);
+    text-align: center;
+    position: relative;
+    border: 2px solid rgba(255, 107, 139, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(5px);
+}
+
+.message-text {
+    font-size: clamp(1.1rem, 3vw, 1.3rem);
+    color: var(--dark);
+    font-style: italic;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0 10px;
+}
+
+.quote-open,
+.quote-close {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--primary);
+    font-family: serif;
+    line-height: 0.5;
+    vertical-align: middle;
+}
+
+.quote-open {
+    margin-right: 10px;
+}
+
+.quote-close {
+    margin-left: 10px;
+}
+
+.signature {
+    display: block;
+    margin-top: 15px;
+    font-weight: 600;
+    color: var(--dark);
+    font-size: clamp(1rem, 2.5vw, 1.1rem);
+    font-style: normal;
+}
+
+/* Controls Section */
+.controls-section {
+    width: 100%;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(15px, 3vw, 20px);
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.music-btn, .confetti-btn {
+    padding: clamp(12px, 2.5vw, 15px) clamp(20px, 4vw, 30px);
+    border: none;
+    border-radius: 50px;
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    min-width: 150px;
+    flex: 1;
+    max-width: 300px;
+}
+
+.music-btn {
+    background: var(--primary);
+    color: white;
+}
+
+.confetti-btn {
+    background: var(--accent);
+    color: white;
+}
+
+.music-btn:hover,
+.music-btn:focus {
+    background: #FF3D6A;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(255, 107, 139, 0.3);
+}
+
+.confetti-btn:hover,
+.confetti-btn:focus {
+    background: var(--accent-dark);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(6, 214, 160, 0.3);
+}
+
+.btn-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Counter Section */
+.counter-section {
+    width: 100%;
+}
+
+.counter {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: clamp(15px, 3vw, 20px);
+    flex-wrap: wrap;
+}
+
+.counter-item {
+    text-align: center;
+    padding: clamp(15px, 3vw, 20px);
+    background: white;
+    border-radius: 20px;
+    flex: 1;
+    min-width: 100px;
+    max-width: 180px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.counter-item:hover,
+.counter-item:focus {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+    box-shadow: 0 10px 25px rgba(255, 107, 139, 0.15);
+}
+
+.counter-item i {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.count {
+    display: block;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: var(--dark);
+    font-family: 'Poppins', sans-serif;
+    line-height: 1;
+    margin: 5px 0;
+}
+
+.label {
+    color: var(--text-light);
+    font-size: clamp(0.8rem, 2vw, 0.9rem);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+    margin-top: 5px;
+}
+
+/* Floating Hearts */
+.floating-hearts {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    top: 0;
+    left: 0;
+}
+
+.heart {
+    position: absolute;
+    font-size: clamp(18px, 4vw, 24px);
+    color: var(--primary);
+    opacity: 0.7;
+    animation: floatUp 8s linear infinite;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(100vh) translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.7;
+    }
+    90% {
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(-100px) translateX(calc(var(--random-x) * 100px)) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Instructions */
+.instructions {
+    text-align: center;
+    color: white;
+    font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+    opacity: 0.9;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+    margin-top: 10px;
+}
+
+.instructions i {
+    margin-right: 8px;
+    color: var(--secondary);
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    color: white;
+    font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+    opacity: 0.8;
+    margin-top: 20px;
+    padding: 15px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Confetti Overlay */
+.confetti-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+    
+    .card {
+        padding: 20px;
+        border-width: 5px;
+    }
+    
+    .balloon-container {
+        height: 120px;
+        gap: 10px;
+    }
+    
+    .balloon {
+        width: 40px;
+        height: 60px;
+    }
+    
+    .controls {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .music-btn, .confetti-btn {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .counter {
+        gap: 10px;
+    }
+    
+    .counter-item {
+        min-width: calc(33.333% - 10px);
+        padding: 15px 10px;
+    }
+    
+    .cake {
+        transform: scale(0.9);
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        padding: 15px;
+        border-radius: 20px;
+    }
+    
+    .title {
+        font-size: 2rem;
+    }
+    
+    .balloon-container {
+        height: 100px;
+    }
+    
+    .balloon {
+        width: 35px;
+        height: 50px;
+    }
+    
+    .cake {
+        transform: scale(0.8);
+    }
+    
+    .counter-item {
+        min-width: calc(50% - 10px);
+        max-width: calc(50% - 10px);
+    }
+    
+    .counter-item:last-child {
+        min-width: 100%;
+        max-width: 100%;
+        margin-top: 10px;
+    }
+    
+    .message-text {
+        font-size: 1rem;
+    }
+    
+    .music-btn, .confetti-btn {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .card {
+        box-shadow: none;
+        border: 2px solid #ccc;
+        animation: none;
+    }
+    
+    .controls,
+    .instructions,
+    .footer,
+    .floating-hearts,
+    .fireworks-container {
+        display: none;
+    }
+}

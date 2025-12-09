@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A beautiful interactive birthday celebration card with animations, music, and confetti effects.">
+    <title>Happy Birthday Celebration!</title>
+    <link rel="icon" href="https://gallery.yopriceville.com/var/resizes/Free-Clipart-Pictures/Balloons-PNG/Balloons_PNG_Image-771009156.png?m=1541639344" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="fireworks-container"></div>
+    <div class="confetti-overlay"></div>
+    
+    <main class="main-content">
+        <div class="container">
+            <div class="card">
+                <!-- Header Section -->
+                <header class="card-header">
+                    <div class="birthday-hat">
+                        <i class="fas fa-birthday-cake"></i>
+                    </div>
+                    <h1 class="title">Happy Birthday! <span class="celebrate" role="img" aria-label="party popper">🎉</span></h1>
+                    <p class="subtitle">Wishing you the most wonderful day!</p>
+                </header>
+                
+                <!-- Main Content -->
+                <div class="card-content">
+                    <!-- Balloons Section -->
+                    <section class="balloon-section">
+                        <div class="balloon-container">
+                            <div class="balloon balloon1" aria-label="Red balloon"></div>
+                            <div class="balloon balloon2" aria-label="Yellow balloon"></div>
+                            <div class="balloon balloon3" aria-label="Green balloon"></div>
+                            <div class="balloon balloon4" aria-label="Blue balloon"></div>
+                            <div class="balloon balloon5" aria-label="Purple balloon"></div>
+                        </div>
+                    </section>
+                    
+                    <!-- Cake Section -->
+                    <section class="cake-section">
+                        <div class="cake-container">
+                            <div class="cake" aria-label="Birthday cake with candle">
+                                <div class="cake-top">
+                                    <div class="candle"></div>
+                                    <div class="flame"></div>
+                                </div>
+                                <div class="cake-layer cake-bottom"></div>
+                                <div class="cake-layer cake-middle"></div>
+                                <div class="cake-layer cake-top-layer"></div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <!-- Message Section -->
+                    <section class="message-section">
+                        <div class="message">
+                            <blockquote class="message-text">
+                                <span class="quote-open">"</span>
+                                <span class="quote-text">May your birthday be filled with laughter, joy, and beautiful moments!</span>
+                                <span class="quote-close">"</span>
+                            </blockquote>
+                            <cite class="signature">- With best wishes</cite>
+                        </div>
+                    </section>
+                    
+                    <!-- Controls Section -->
+                    <section class="controls-section">
+                        <div class="controls">
+                            <button id="playBtn" class="music-btn" aria-label="Play birthday song">
+                                <i class="fas fa-play"></i> <span class="btn-text">Play Birthday Song</span>
+                            </button>
+                            <button id="confettiBtn" class="confetti-btn" aria-label="Trigger confetti animation">
+                                <i class="fas fa-fireworks"></i> <span class="btn-text">More Confetti!</span>
+                            </button>
+                        </div>
+                    </section>
+                    
+                    <!-- Counter Section -->
+                    <section class="counter-section">
+                        <div class="counter">
+                            <div class="counter-item" tabindex="0">
+                                <i class="fas fa-gift" aria-hidden="true"></i>
+                                <span class="count" id="giftCount">0</span>
+                                <span class="label">Gifts</span>
+                            </div>
+                            <div class="counter-item" tabindex="0">
+                                <i class="fas fa-cake-candles" aria-hidden="true"></i>
+                                <span class="count" id="candleCount">0</span>
+                                <span class="label">Candles</span>
+                            </div>
+                            <div class="counter-item" tabindex="0">
+                                <i class="fas fa-heart" aria-hidden="true"></i>
+                                <span class="count" id="wishCount">0</span>
+                                <span class="label">Wishes</span>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            
+            <!-- Floating Hearts Container -->
+            <div class="floating-hearts"></div>
+        </div>
+        
+        <!-- Instructions -->
+        <aside class="instructions">
+            <p><i class="fas fa-info-circle"></i> Click the buttons to play music and create confetti!</p>
+        </aside>
+        
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Made with <i class="fas fa-heart" style="color: #FF6B8B;"></i> for your special day</p>
+        </footer>
+    </main>
+    
+    <!-- Audio Element -->
+    <audio id="birthdayAudio" preload="auto">
+        <source src="song.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    
+    <script src="script.js"></script>
+</body>
+</html>

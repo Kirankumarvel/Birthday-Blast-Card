@@ -5,7 +5,7 @@ A stunning, interactive birthday celebration card with beautiful animations, mus
 [![Preview](https://img.shields.io/badge/Preview-Birthday_Card-pink?style=for-the-badge)](README.md)
 [![Responsive](https://img.shields.io/badge/Responsive-All_Devices-green?style=for-the-badge)](README.md)
 [![Interactive](https://img.shields.io/badge/Interactive-Animations-blue?style=for-the-badge)](README.md)  
-[![Live Demo](https://img.shields.io/badge/%F0%9F%9A%80-Live_Demo-FF6B8B?style=for-the-badge&logo=vercel&logoColor=white)](https://your-live-demo-url.example)
+[![Live Demo](https://img.shields.io/badge/%F0%9F%9A%80-Live_Demo-FF6B8B?style=for-the-badge&logo=vercel&logoColor=white)](https://birthday-blast-card.netlify.app/)
 
 ---
 
